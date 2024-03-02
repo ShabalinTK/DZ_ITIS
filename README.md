@@ -50,7 +50,7 @@ for(int i = 0; i < 10; i++)
 
 [VK](https://vk.com/id560830328)
 
-![Log](image.png)
+![Log](https://fonoteka.top/uploads/posts/2021-06/1624496020_57-phonoteka_org-p-oboi-na-rabochii-stol-programmirovanie-kra-62.jpg)
 
 ![](https://static.tildacdn.com/tild3365-3263-4766-b663-336234653965/orig.gif)
 
