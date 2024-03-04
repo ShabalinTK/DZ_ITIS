@@ -1,13 +1,14 @@
 ﻿
+
 public class StackArray
 {
     private int[] array;
     private int top;
     private int maxSize;
 
-    public StackArray(int initialSize)
+    public StackArray(int size)
     {
-        maxSize = initialSize;
+        maxSize = size;
         array = new int[maxSize];
         top = -1;
     }
@@ -15,23 +16,21 @@ public class StackArray
     public void Push(int value)
     {
         if (top == maxSize - 1)
-            ResizeArray();
-
+        {
+            Console.WriteLine("Stack Overflow");
+            return;
+        }
         array[++top] = value;
     }
 
     public int Pop()
     {
+        if (top == -1)
+        {
+            Console.WriteLine("Stack Underflow");
+            return -1;
+        }
         return array[top--];
-    }
-
-    private void ResizeArray()
-    {
-        int newSize = maxSize * 2;
-        int[] newArray = new int[newSize];
-        Array.Copy(array, newArray, maxSize);
-        maxSize = newSize;
-        array = newArray;
     }
 
     public bool IsEmpty()
@@ -47,9 +46,9 @@ public class QueueArray
     private int rear;
     private int maxSize;
 
-    public QueueArray(int initialSize)
+    public QueueArray(int size)
     {
-        maxSize = initialSize;
+        maxSize = size;
         array = new int[maxSize];
         front = 0;
         rear = -1;
@@ -58,24 +57,22 @@ public class QueueArray
     public void Enqueue(int value)
     {
         if (rear == maxSize - 1)
-            ResizeArray();
-
+        {
+            Console.WriteLine("Queue Overflow");
+            return;
+        }
         array[++rear] = value;
     }
 
     public int Dequeue()
     {
+        if (front == rear + 1)
+        {
+            Console.WriteLine("Queue Underflow");
+            return -1;
+        }
         int dequeuedItem = array[front++];
         return dequeuedItem;
-    }
-
-    private void ResizeArray()
-    {
-        int newSize = maxSize * 2;
-        int[] newArray = new int[newSize];
-        Array.Copy(array, newArray, maxSize);
-        maxSize = newSize;
-        array = newArray;
     }
 
     public bool IsEmpty()
@@ -88,35 +85,27 @@ class Program
 {
     static void Main(string[] args)
     {
-
-        Console.WriteLine("Stack");
         StackArray stack = new StackArray(5);
         stack.Push(1);
         stack.Push(2);
         stack.Push(3);
-        stack.Push(4);
-        stack.Push(5);
-        stack.Push(6);
 
-        for (int i = 0; i < 6; i++)
-        {
-            Console.WriteLine(stack.Pop());
-        }
+        Console.WriteLine(stack.Pop());
+        Console.WriteLine(stack.Pop());
+
+        stack.Push(5);
+
+        Console.WriteLine(stack.Pop());
+        Console.WriteLine(stack.Pop());
 
         Console.WriteLine();
 
-
-        Console.WriteLine("Queue");
         QueueArray queue = new QueueArray(5);
         queue.Enqueue(1);
         queue.Enqueue(2);
         queue.Enqueue(3);
-        queue.Enqueue(4);
-        queue.Enqueue(5);
 
-        for (int i = 0; i < 5; i++)
-        {
-            Console.WriteLine(queue.Dequeue());
-        }
+        Console.WriteLine(queue.Dequeue());
+        Console.WriteLine(queue.Dequeue());
     }
 }
