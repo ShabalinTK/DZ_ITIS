@@ -54,8 +54,7 @@
                 Sum = 857205.214124108
             });
 
-            var result = human.GroupBy(n => n.Number % 5)
-                  .OrderBy(a => a.Key)
+            var result = human.GroupBy(n => n.Number / 36 + 1)
                   .Select(g => g.OrderByDescending(s => s.Sum).First());
 
             foreach (var item in result)
