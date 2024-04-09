@@ -10,7 +10,7 @@ namespace LinqObj7
 
         public override string ToString()
         {
-            return $"{Year} {Month} {Hours} {ClientCode}";
+            return $"Year: {Year} | Month: {Month} | Hours: {Hours} | ClientCode: {ClientCode}";
         }
     }
 }

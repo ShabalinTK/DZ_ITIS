@@ -1,5 +1,7 @@
 ﻿
 
+using System.Globalization;
+
 namespace LinqObj7
 {
 
@@ -51,7 +53,11 @@ namespace LinqObj7
                 Hours = 20
             });
 
-            var result = group.GroupBy(x => x.ClientCode).OrderBy(x => x).ThenBy()
+            var result = group.GroupBy(p => p.ClientCode)
+                .Select(g => g.OrderByDescending(p => p.Hours).First());
+
+            foreach(var item in result)
+                Console.WriteLine(item);
         }
     }
 
