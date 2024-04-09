@@ -16,7 +16,7 @@ namespace LinqObj18
 
             abitur.Add(new Applicant
             {
-                Year = 2012,
+                Year = 2011,
                 Number = 32,
                 Surname = "Ivanov"
             });

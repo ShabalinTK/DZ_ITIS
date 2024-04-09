@@ -1,4 +1,6 @@
-﻿namespace LinqObj29
+﻿using System.Security.Cryptography.X509Certificates;
+
+namespace LinqObj29
 {
     public class Program
     {
@@ -55,11 +57,14 @@
             });
 
             var result = human.GroupBy(n => n.Number / 36 + 1)
-                  .Select(g => g.OrderByDescending(s => s.Sum).First());
+                .OrderBy(a => a.Key)
+                .Select(g => new { g.Key, First= 
+                g.OrderByDescending(s => s.Sum).First() });
+
 
             foreach (var item in result)
             {
-                Console.WriteLine(item);
+                    Console.WriteLine($"Подъезд: {item.Key},  {item.First}");
             }
         }
     }

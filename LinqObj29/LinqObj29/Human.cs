@@ -8,6 +8,7 @@ namespace LinqObj29
         public string Surname { get; set; }
         public double Sum { get; set; }
 
+        
         public override string ToString()
         {
             return $"Number: {Number}, Surname: {Surname}, Sum: {Sum}";
