@@ -6,11 +6,11 @@ namespace LinqObj40
     {
         public string Comp { get; set; }
 
-        public Dictionary<string, Dictionary<int, List<int>>> Str { get; set; }
+        public string Street { get; set; }
 
-        public Dictionary<int, List<int>> Number { get; set; }
+        public int Number { get; set; }
 
-        public List<int> Sum { get; set; }
+        public int Sum { get; set; }
 
         public override string ToString()
         {

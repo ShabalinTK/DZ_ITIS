@@ -4,88 +4,83 @@
     {
         static void Main(string[] args)
         {
-            
-        }
-    }
-
-    public class InfoAzs
-    {
-        public void InfoAzs()
-        {
-            var groups = new List<Azs>;
-            groups.Add()
-        }
-        private Azs azs1
-        {
-            return new Azs()
-        {
-
-        }
-
-            grup.Add(new Azs
+            var group = new List<Azs>();
+            group.Add(new Azs
             {
-                Comp = "tatneft",
-                Sum = new List<int> { 4200, 10000},
-                Number = new Dictionary<int, List<int>>
-                {
-                    {92, new List<int> {4200} },
-                    {95, new List<int> {10000} }
-                },
-
-                Str = new Dictionary<string, Dictionary<int, List<int>>>
-                {
-                    
-                    {
-                        "1/1", new Dictionary<int, List<int>>
-                        {
-                            {92, new List<int> {4200 } },
-                            {95, new List<int> {10000} }
-                        }
-                    },
-                    {
-                        "2/1", new Dictionary<int, List<int>>
-                        {
-                            {92, new List<int> {4200} },
-                            {95, new List<int> {10000} }
-                        }
-                    }
-                }
+                Comp = "Татнефть",
+                Street = "1",
+                Number = 92,
+                Sum = 4910
             });
-        }
-
-        public void Str2()
-        {
-            var grup = new List<Azs>();
-
-            grup.Add(new Azs
+            group.Add(new Azs
             {
-                Comp = "RosNeft",
-                Sum = new List<int> { 5700, 9800 },
-                Number = new Dictionary<int, List<int>>
-                {
-                    {92, new List<int> {5700 } },
-                    {95, new List<int> {9800} }
-                },
-
-                Str = new Dictionary<string, Dictionary<int, List<int>>>
-                {
-
-                    {
-                        "1/1", new Dictionary<int, List<int>>
-                        {
-                            {92, new List<int> { 5700 } },
-                            {95, new List<int> { 9800 } }
-                        }
-                    },
-                    {
-                        "2/1", new Dictionary<int, List<int>>
-                        {
-                            {92, new List<int> { 5700 } },
-                            {95, new List<int> { 9800 } }
-                        }
-                    }
-                }
+                Comp = "Татнефть",
+                Street = "1",
+                Number = 95,
+                Sum = 5315
             });
+            group.Add(new Azs
+            {
+                Comp = "Татнефть",
+                Street = "1",
+                Number = 98,
+                Sum = 6035
+            });
+            group.Add(new Azs
+            {
+                Comp = "Татнефть",
+                Street = "2",
+                Number = 92,
+                Sum = 4910
+            });
+            group.Add(new Azs
+            {
+                Comp = "Татнефть",
+                Street = "2",
+                Number = 95,
+                Sum = 5315
+            });
+            group.Add(new Azs
+            {
+                Comp = "Татнефть",
+                Street = "2",
+                Number = 98,
+                Sum = 6035
+            });
+
+
+            group.Add(new Azs
+            {
+                Comp = "Лукойл",
+                Street = "1",
+                Number = 92,
+                Sum = 4940
+            });
+            group.Add(new Azs
+            {
+                Comp = "Лукойл",
+                Street = "2",
+                Number = 95,
+                Sum = 5395
+            });
+
+
+            group.Add(new Azs
+            {
+                Comp = "Газпромнефть",
+                Street = "1",
+                Number = 92,
+                Sum = 4915
+            });
+            group.Add(new Azs
+            {
+                Comp = "Газпромнефть",
+                Street = "2",
+                Number = 98,
+                Sum = 5965
+            });
+
+            var result = 
         }
     }
 }
