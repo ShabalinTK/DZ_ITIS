@@ -14,7 +14,7 @@ namespace LinqObj40
 
         public override string ToString()
         {
-            return $"Comp: {Comp}, Str: {Str}, Number: {Number}, Sum: {Sum}";
+            return $"Comp: {Comp}, Street: {Street}, Number: {Number}, Sum: {Sum}";
         }
     }
 }
