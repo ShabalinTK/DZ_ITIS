@@ -15,9 +15,9 @@ namespace LinqObj29
             });
             human.Add(new Human
             {
-                Number = 142,
+                Number = 144,
                 Surname = "Smirnov",
-                Sum = 5132.1
+                Sum = 5123423232.1
             });
             human.Add(new Human
             {
@@ -56,9 +56,9 @@ namespace LinqObj29
                 Sum = 857205.214124108
             });
 
-            var result = human.GroupBy(n => n.Number / 36 + 1)
+            var result = human.GroupBy(n => n.Number % 36 == 0 ? n.Number / 36 : n.Number / 36 + 1)
                 .OrderBy(a => a.Key)
-                .Select(g => new { g.Key, First= 
+                .Select(g => new { g.Key, First = 
                 g.OrderByDescending(s => s.Sum).First() });
 
 
