@@ -9,6 +9,7 @@ namespace LinqObj7
     {
         static void Main(string[] args)
         {
+            int k = 4;
             var group = new List<Person>();
             group.Add(new Person
             {
@@ -53,8 +54,7 @@ namespace LinqObj7
                 Hours = 20
             });
 
-            var result = group.GroupBy(p => p.ClientCode)
-                .Select(g => g.OrderByDescending(p => p.Hours).First());
+            var result = group.Where(p => p.ClientCode == k ? group.GroupBy(g => g.ClientCode).Select(g => g.OrderByDescending(p => p.Hours).First()) : );
 
             foreach(var item in result)
                 Console.WriteLine(item);
