@@ -1,4 +1,6 @@
 ﻿
+using System.Drawing;
+
 namespace LinqObj29
 {
     public class Program
@@ -50,6 +52,11 @@ namespace LinqObj29
             });
             human.Add(new Human
             {
+                Number = 8,
+                Surname = "Leb",
+            });
+            human.Add(new Human
+            {
                 Number = 2,
                 Surname = "Lebedev",
                 Sum = 857205.214124108
@@ -57,12 +64,16 @@ namespace LinqObj29
 
             var result = human.GroupBy(n => ((n.Number - 1) % (4 * 9)) / 4 + 1)
                 .OrderBy(x => x.Key)
-                .Select(g => new { g.Key, First = g.OrderBy(s => s.Sum).First() });
+                .Select(g => new 
+                { 
+                    Floor = g.Key, 
+                    First = g.Any() ? g.OrderBy(s => s.Sum).First().Sum : 0.00
+                });
 
 
             foreach (var item in result)
             {
-                Console.WriteLine($"Этаж: {item.Key}, {item.First}");
+                Console.WriteLine($"Этаж: {item.Floor}, {item.First}");
             }
         }
     }
