@@ -54,12 +54,15 @@ namespace LinqObj7
                 Hours = 20
             });
 
-            var result = group.Where(p => p.ClientCode == k ? group.GroupBy(g => g.ClientCode).Select(g => g.OrderByDescending(p => p.Hours).First()) : );
+            var result = group.Where(g => g.ClientCode == k).GroupBy(p => p.ClientCode)
+               .Select(g => g.OrderByDescending(p => p.Hours).First());
 
-            foreach(var item in result)
-                Console.WriteLine(item);
+
+            if(result.Any())
+                foreach(var item in result)
+                    Console.WriteLine(item);
+            else
+                Console.WriteLine("Нет данных");
         }
     }
-
-    
 }
