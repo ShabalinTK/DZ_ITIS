@@ -87,7 +87,8 @@ namespace LinqObj62
 
             foreach (var item in result)
             {
-                Console.WriteLine($"Class: {item.Class} | Surname: {item.Surname} | Initials: {item.Initials} | Algebra: {item.Al} | Geometry: {item.Ge} | Informatics: {item.In}");
+                Console.WriteLine($"Class: {item.Class} | Surname: {item.Surname} | Initials: {item.Initials} " +
+                    $"| Algebra: {item.Al} | Geometry: {item.Ge} | Informatics: {item.In}");
 
             }
         }
