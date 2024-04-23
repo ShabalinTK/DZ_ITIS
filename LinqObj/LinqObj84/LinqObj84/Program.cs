@@ -29,40 +29,32 @@
                 new E { ProductCode = "P003-9876", StoreName = "Store2", ConsumerCode = 5 }
             };
 
-            var result = E.Join(C,productConsumer => new { productConsumer.StoreName, productConsumer.ConsumerCode },discount => new { discount.StoreName, discount.ConsumerCode },(productConsumer, discount) => new { productConsumer, discount })
-              .GroupJoin(D,x => new { x.productConsumer.StoreName, x.productConsumer.ProductCode },productPrice => new { productPrice.StoreName, productPrice.ProductCode },(x, prices) => new { x.productConsumer, x.discount, ProductPrices = prices.DefaultIfEmpty() })
-              .SelectMany(x => x.ProductPrices, (x, productPrice) => new 
-              { 
-                  x.productConsumer, 
-                  x.discount, 
-                  ProductPrice = productPrice 
-              })
-              .GroupBy(x => new 
-              { 
-                  x.productConsumer.StoreName, 
-                  x.productConsumer.ProductCode 
-              })
-              .OrderBy(g => g.Key.StoreName)
-              .ThenBy(g => g.Key.ProductCode)
-              .Select(g => new
-              {
-                  g.Key.StoreName,
-                  g.Key.ProductCode,
-                  PurchaseCount = g.Count(x => x.ProductPrice != null),
-                  TotalDiscountedPrice = g.Where(x => x.ProductPrice != null).Sum(x => (decimal)x.ProductPrice.Price * (100 - x.discount.Discount) / 100)
-              });
+            var result = D.Join(E, d => new { d.ProductCode, d.StoreName }, e => new { e.ProductCode, e.StoreName }, (d, e) => new { d, e })
+                .Join(C, de => de.e.ConsumerCode, c => c.ConsumerCode, (de, c) => new { de.d, c })
+                .GroupBy(x => new { x.d.StoreName, x.d.ProductCode })
+                .Select(g => new
+                {
+                    Store = g.Key.StoreName,
+                    Product = g.Key.ProductCode,
+                    TotalDiscount = g.Count(),
+                    PriceDiscount = g.Sum(x => x.d.Price * (100 - x.c.Discount) / 100)
+                });
 
             if (result.Any())
             {
-                foreach (var item in result)
+                foreach (var item in result.OrderBy(x => x.Store).ThenBy(x => x.Product))
                 {
-                    Console.WriteLine($"{item.StoreName}, {item.ProductCode}, {item.PurchaseCount}, {item.TotalDiscountedPrice}");
+                    Console.WriteLine($"{item.Store} {item.Product} {item.TotalDiscount} {item.PriceDiscount}");
                 }
             }
             else
             {
                 Console.WriteLine("Требуемые данные не найдены");
             }
+
         }
     }
 }
+
+
+
