@@ -56,7 +56,7 @@ namespace LinqObj95
 
             foreach (var item in result)
             {
-                Console.WriteLine($"Артикул: {item.ProductC} улица: {item.Streett} суммаа со скидкой: {item.TotalDiscount}");
+                Console.WriteLine($"Артикул: {item.ProductC} улица: {item.Streett} суммаа: {item.TotalDiscount}");
             }
 
         }
